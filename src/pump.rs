@@ -118,7 +118,7 @@ impl Pump {
         Ok(0) => break,
         Ok(n) => {
           trace!("read {} bytes", n);
-          buf.split_off(n);
+          let _ = buf.split_off(n);
           self.read_buf.extend(buf);
 
           if self.proto.is_none() {
